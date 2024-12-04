@@ -4,14 +4,16 @@
 {% endblock %}
 
 {% block body %}
+	<h1 class="my-8 text-center font-bold text-5xl">Connexion</h1>
+	<p class="my-4 text-center text-lg">Connectez-vous pour accéder à votre compte, vos commandes et à tous vos avantages !</p>
 	<section class="p-5">
 		<form method="post" class="flex flex-col w-1/2 mx-auto">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
 
-			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-5" autocomplete="email" placeholder="Email" required autofocus>
-			<input type="password" name="password" id="inputPassword" class="form-control mb-5" autocomplete="current-password" placeholder="Mot de passe" required>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-5 rounded-lg" autocomplete="email" placeholder="Email" required autofocus>
+			<input type="password" name="password" id="inputPassword" class="form-control mb-5 rounded-lg" autocomplete="current-password" placeholder="Mot de passe" required>
 
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 

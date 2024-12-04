@@ -21,8 +21,8 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', type: EmailType::class, options: ['attr' => ['class' => 'mr-0', 'placeholder' => 'Email']])
-            ->add('pseudo', TextType::class, options: ['attr' => ['class' => '', 'placeholder' => 'Pseudo']])
+            ->add('email', type: EmailType::class, options: ['attr' => ['class' => 'mr-0 rounded rounded-m w-1/3', 'placeholder' => 'Email']])
+            ->add('pseudo', TextType::class, options: ['attr' => ['class' => 'rounded rounded-m w-1/3', 'placeholder' => 'Pseudo']])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -30,6 +30,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
+                'attr' => ['class' => 'ml-2 rounded rounded-m'],
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -37,8 +38,8 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
-                'first_options' => ['attr' => ['placeholder' => 'Mot de passe']],
-                'second_options' => ['attr' => ['placeholder' => 'Confirmer le mot de passe']],
+                'first_options' => ['attr' => ['placeholder' => 'Mot de passe', 'class' => 'rounded rounded-m w-1/3']],
+                'second_options' => ['attr' => ['placeholder' => 'Confirmer le mot de passe', 'class' => 'rounded rounded-m w-1/3']],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
